@@ -1,0 +1,52 @@
+header {
+  background-color: white;
+  border-bottom: 1px solid #f0cfdc;
+  padding: 10px 30px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.contenedor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 24px;
+  height: 24px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2c2c38;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #f558ad;
+}
+
+.carrito a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffe6f2;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
+.carrito img {
+  width: 18px;
+  height: 18px;
+  filter: invert(27%) sepia(86%) saturate(2953%) hue-rotate(309deg) brightness(103%) contrast(103%);
+}
