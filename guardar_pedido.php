@@ -12,11 +12,20 @@ $data = json_decode(file_get_contents("php://input"), true);
 $carrito = $data["carrito"];
 $idUsuario = $_SESSION['usuario_id'];
 
-// Insertar pedido
-$sql = "INSERT INTO pedidos (usuario_id, fecha) VALUES ($idUsuario, NOW())";
+// 1️⃣ Calcular el total del pedido
+$totalPedido = 0;
+foreach ($carrito as $item) {
+    $precio = (int)$item['precio'];
+    $cantidad = (int)$item['cantidad'];
+    $totalPedido += $precio * $cantidad;
+}
+
+// 2️⃣ Insertar pedido con total y estado inicial
+$sql = "INSERT INTO pedidos (usuario_id, fecha, total, estado) VALUES ($idUsuario, NOW(), $totalPedido, 'Pendiente')";
 if ($conn->query($sql)) {
     $pedidoId = $conn->insert_id;
 
+    // 3️⃣ Insertar los detalles del pedido
     foreach ($carrito as $item) {
         $nombre = $conn->real_escape_string($item['nombre']);
         $precio = (int)$item['precio'];
@@ -26,7 +35,8 @@ if ($conn->query($sql)) {
                       VALUES ($pedidoId, '$nombre', $precio, $cantidad)");
     }
 
-    echo json_encode(["ok" => true]);
+    echo json_encode(["ok" => true, "msg" => "Pedido guardado correctamente", "total" => $totalPedido]);
 } else {
     echo json_encode(["ok" => false, "msg" => $conn->error]);
 }
+?>

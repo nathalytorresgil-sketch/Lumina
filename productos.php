@@ -19,7 +19,9 @@ include 'conexion.php';
     $sql = "SELECT * FROM productos";
     $result = $conn->query($sql);
 
-    if (isset($_SESSION['usuario_id'])) {
+    //QUITE ESTAS FUNCIONALIDADES MOMENTANEAMENTE
+
+   /* if (isset($_SESSION['usuario_id'])) {
       echo "
         <div class='tarjeta-producto'>
             <a href='agregar_productos.php' style='text-decoration:none; color:inherit; display:block; text-align:center; padding:20px;'>
@@ -29,7 +31,7 @@ include 'conexion.php';
             </a>
           </div>
         ";
-    }
+    }*/
 
     if ($result->num_rows > 0) {
       while ($producto = $result->fetch_assoc()) {
@@ -44,7 +46,9 @@ include 'conexion.php';
             </div>
         ";
 
-        if (isset($_SESSION['usuario_id'])) {
+        //QUITE ESTAS FUNCIONALIDADES MOMENTANEAMENTE
+
+       /* if (isset($_SESSION['usuario_id'])) {
             echo "
             <div class='acciones'>
               <a href='actualizar_producto.php?id={$producto['id']}' class='boton-editar'>Editar</a>
@@ -55,7 +59,7 @@ include 'conexion.php';
               </a>
             </div>
             ";
-        }
+        }*/
 
         echo "</div>";
       }

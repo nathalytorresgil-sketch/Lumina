@@ -7,7 +7,7 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-// Verificamos si la acción es logout
+// ==================== LOGOUT ====================
 if (isset($_GET['logout'])) {
     // Destruir todas las variables de sesión
     $_SESSION = array();
@@ -26,36 +26,50 @@ if (isset($_GET['logout'])) {
         );
     }
 
-    // Finalmente destruir la sesión
+    // Destruir sesión y redirigir
     session_destroy();
-
-    // Redirigir al login
     header("Location: login.php?mensaje=sesion_cerrada");
     exit();
 }
 
-// Si no es logout, entonces intentamos login
+// ==================== LOGIN ====================
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST['email'];
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM usuarios WHERE correo='$email'";
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM usuarios WHERE correo = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows === 1) {
         $usuario = $result->fetch_assoc();
 
         if (password_verify($password, $usuario['password'])) {
+            // Guardar datos en la sesión
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['usuario_nombre'] = $usuario['nombre'];
-            header("Location: index.php");
-            exit();
+            $_SESSION['usuario_rol'] = strtoupper($usuario['rol']); // por si está en minúsculas
+
+            // Redirigir según el rol
+            if ($usuario['rol'] === 'ADMINISTRADOR') {
+                header("Location: dashboard.php");
+                exit();
+            } elseif ($usuario['rol'] === 'CLIENTE') {
+                header("Location: index.php");
+                exit();
+            } else {
+                // Rol desconocido
+                header("Location: login.php?error=rol_no_valido");
+                exit();
+            }
         } else {
-            header("Location: login.php?error=1");
+            header("Location: login.php?error=1"); // Contraseña incorrecta
             exit();
         }
     } else {
-        header("Location: login.php?error=1");
+        header("Location: login.php?error=1"); // Usuario no encontrado
         exit();
     }
 }
