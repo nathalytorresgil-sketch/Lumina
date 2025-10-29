@@ -35,18 +35,21 @@ nav a:hover {
   color: #f558ad;
 }
 
-.carrito a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffe6f2;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
+/* Footer */
+.footer {
+  background-color: #ffeaf6;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
 }
 
-.carrito img {
-  width: 18px;
-  height: 18px;
-  filter: invert(27%) sepia(86%) saturate(2953%) hue-rotate(309deg) brightness(103%) contrast(103%);
+.footer h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer p {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.9rem;
 }

@@ -1,11 +1,13 @@
 .contenedor-login {
+  font-family: 'Segoe UI', sans-serif;
   background-color: #ffffff;
   padding: 40px;
+  margin: auto;
+  margin-top: 30px;
   border-radius: 16px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   width: 350px;
   text-align: center;
-  padding-left: 500px;
 }
 
 h2 {

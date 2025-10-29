@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function cargarPedidos() {
-  fetch("obtener_pedidos.php")
+  fetch("/ilumina/public/pedidos/obtener")
     .then(res => res.json())
     .then(data => {
       const tbody = document.getElementById("tabla-pedidos");
@@ -59,4 +59,5 @@ function cargarPedidos() {
       document.getElementById("tabla-pedidos").innerHTML = "<tr><td colspan='5'>Error al cargar pedidos</td></tr>";
     });
 }
+
 

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../public/css/dashboard.css">
 </head>
 
 <body>
@@ -59,7 +59,7 @@
                 </li>
 
                 <li>
-                    <a href="verificar_login.php?logout=1">
+                    <a href="/ilumina/public/auth/logout">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
@@ -170,7 +170,7 @@
                     <table>
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="public/img/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -179,7 +179,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="public/img/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -188,7 +188,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="public/img/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -197,7 +197,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="public/img/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -206,7 +206,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="public/img/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -215,7 +215,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="public/img/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -224,7 +224,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="public/img/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -233,7 +233,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="public/img/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -246,7 +246,7 @@
     </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="main.js"></script>
+    <script src="../public/js/main.js"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
