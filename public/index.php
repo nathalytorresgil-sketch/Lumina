@@ -59,10 +59,10 @@ switch ($route) {
         break;
 
     case 'registro':
-    require '../app/controllers/AuthController.php';
-    $controller = new AuthController();
-    $controller->showRegister();
-    break;
+        require '../app/controllers/AuthController.php';
+        $controller = new AuthController();
+        $controller->showRegister();
+        break;
 
     case 'auth/registro':
         require '../app/controllers/AuthController.php';
@@ -78,16 +78,21 @@ switch ($route) {
 
     case 'pedidos/verificarSesion':
         require '../app/controllers/PedidosController.php';
-        $c = new PedidosController();
-        $c->verificarSesion();
+        $controller = new PedidosController();
+        $controller->verificarSesion();
         break;
 
     case 'pedidos/guardar':
         require '../app/controllers/PedidosController.php';
-        $c = new PedidosController();
-        $c->guardar();
+        $controller = new PedidosController();
+        $controller->guardar();
         break;
 
+    case 'gestionUsuarios':
+        require '../app/controllers/UsuariosController.php';
+        $controller = new UsuariosController();
+        $controller->usuarios();
+        break;
 
     default:
         http_response_code(404);
